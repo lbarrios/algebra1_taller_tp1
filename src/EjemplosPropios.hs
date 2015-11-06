@@ -50,3 +50,8 @@ video1f2 = [
     [      pNegro,   pAmarillo,       pAzul]]
 
 video1 = Agregar video1f2 (Agregar video1f1 (Iniciar video1f2))
+
+pruebaf1 :: Frame
+pruebaf1 = [[pNegro,pNegro],[pBlanco,pBlanco]]
+pruebaf2 :: Frame
+pruebaf2 = [[pNegro,pBlanco],[pBlanco,pBlanco]]
