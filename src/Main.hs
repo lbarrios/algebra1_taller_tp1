@@ -49,7 +49,12 @@ pixelsComprimidosSiDiferente y x ps1 ps2 umbral
 
 -- Ejercicio 4/5
 comprimir :: Video -> Float -> Integer -> VideoComprimido
-comprimir = error "Implementar!!! (ejercicio 4)"
+comprimir (Iniciar f) umbralPixel umbralFrameComprimido  = IniciarComp f
+comprimir (Agregar f v) umbralPixel umbralFrameComprimido
+	| fromIntegral (length (frameComprimido)) <= umbralFrameComprimido = AgregarComprimido frameComprimido recursion
+	| otherwise = AgregarNormal f recursion
+	where frameComprimido = pixelsDiferentesEnFrame (ultimoFrame v) f umbralPixel
+	      recursion = comprimir v umbralPixel umbralFrameComprimido
 
 -- Ejercicio 5/5
 descomprimir :: VideoComprimido -> Video
