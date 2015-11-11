@@ -38,7 +38,7 @@ pixelsDiferentesEnFilas fila (f1 : f1s) (f2 : f2s) umbral = verDeltaPixel ++ pix
 pixelsComprimidosSiDiferente :: Integer -> Integer -> [Pixel] -> [Pixel] -> Float -> FrameComprimido
 pixelsComprimidosSiDiferente y x [] [] umbral = []
 pixelsComprimidosSiDiferente y x (p1 : p1s) (p2 : p2s) umbral 
-	| abs (norma (restarPixeles p1 p2)) >= umbral = [(y, x, (restarPixeles p1 p2))] ++ recursion
+	| abs (norma (restarPixeles p1 p2)) > umbral = [(y, x, (restarPixeles p1 p2))] ++ recursion
 	| otherwise = recursion
 	where recursion = pixelsComprimidosSiDiferente y (x+1) p1s p2s umbral
 
